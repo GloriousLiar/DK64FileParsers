@@ -1,0 +1,113 @@
+Beaver
+Giant Clam
+Krash
+Book
+-
+Zinger
+Klobber
+Snide
+Army Dillo
+Klump
+-
+Cranky
+Funky
+Candy
+Beetle
+Mermaid
+Kaboom
+Vulture
+Squawks
+Cutscene DK
+Cutscene Diddy
+Cutscene Lanky
+Cutscene Tiny
+Cutscene Chunky
+Padlock T&S
+Llama
+Mad Jack
+Klaptrap
+Zinger
+Vulture (Race)
+Klaptrap (Purple)
+Klaptrap (Red)
+GETOUT Controller
+Beaver (Gold)
+-
+Fire Column Spawner
+Minecart (TNT)
+Minecart (TNT)
+Pufftoss
+Cannon (Seasick Chunky)
+K Rool Foot
+-
+Fireball Spawner
+-
+Mushroom Man
+-
+Troff
+-
+Bad Hit Detection Man
+-
+-
+Ruler
+Toy Box
+Squawks
+Seal
+Scoff
+Robo-Kremling
+Dogadon
+-
+Kremling
+Spotlight Fish
+Kasplat (DK)
+Kasplat (Diddy)
+Kasplat (Lanky)
+Kasplat (Tiny)
+Kasplat (Chunky)
+Mechanical Fish
+Seal
+Banana Fairy
+Spotlight Squawks
+-
+-
+Rabbit
+Owl
+Nintendo Logo
+Fire Breath Spawner
+Minigame Controller
+Battle Crown Controller
+Toy Car
+Minecart (TNT)
+Cutscene Object (Llama)
+Guard
+Rareware Logo
+Robo-Zinger
+Krossbones
+Shuri
+Gimpfish
+Mr. Dice
+Sir Domino
+Mr. Dice
+Rabbit
+-
+Fireball (W/ Glasses)
+K Lumsy
+Spider Miniboss
+Spiderling
+Squawks
+K Rool (DK Phase)
+Skeleton Head
+Bat
+Tomato
+Kritter-in-a-Sheet
+Pufftup
+Kosha
+-
+Enemy Car
+K Rool (Diddy Phase)
+K Rool (Lanky Phase)
+K Rool (Tiny Phase)
+K Rool (Chunky Phase)
+Bug
+Banana Fairy (BFI)
+Ice Tomato
