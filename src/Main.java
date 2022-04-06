@@ -12,7 +12,8 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		//getCharacterSpawnerData("C:\\Learning\\eclipse-workspace\\DK64Textures\\src\\117C77A_ZLib.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
-		getFloorData("C:\\Learning\\eclipse-workspace\\DK64FileParsers\\src\\test-files\\63CE96_ZLibtmp.bin.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
+		//getFloorData("C:\\Learning\\eclipse-workspace\\DK64FileParsers\\src\\test-files\\63CE96_ZLibtmp.bin.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
+		floorIsWater("C:\\Learning\\eclipse-workspace\\DK64FileParsers\\src\\test-files\\63CDE4_ZLibtmp.bin","C:\\Users\\Jacob\\Desktop\\output.bin");
 		//getCharacterSpawnerData("C:\\Learning\\eclipse-workspace\\DK64Textures\\src\\117CA8C_ZLib.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
 		//printPointerTableOffsets("C:\\Users\\Jacob\\Desktop\\racedata.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
 		//getCheckpointData("C:\\Learning\\crankys-lab\\dk64-tag-anywhere\\"+
@@ -22,6 +23,36 @@ public class Main {
 		//					"maps\\185 - Creepy_Castle__Car_Race\\race_checkpoints.bin",
 		//					"C:\\Users\\Jacob\\Desktop\\output.txt");
 		//getGeometryData("C:\\Users\\Jacob\\Desktop\\17DA9E_ZLib.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
+	}
+	
+	public static void floorIsWater(String inPath, String outPath) throws IOException {
+		System.out.println("Begin.");
+		Path p = FileSystems.getDefault().getPath("", inPath);
+		byte[] bytes = Files.readAllBytes(p);
+		
+		FileOutputStream fos = new FileOutputStream(outPath);
+		
+		ArrayList<Integer> waterPropertyIndices = new ArrayList<Integer>();
+		
+		int index=4;
+		int meshIndex=1;
+		while(index < bytes.length) {
+			byte[] nextAddressBytes = {bytes[index],bytes[index+1],bytes[index+2],bytes[index+3]};
+			int nextAddress = ByteBuffer.wrap(nextAddressBytes).getInt();
+			index+=4;
+			int triNum=0;
+			while(index < nextAddress) {
+				waterPropertyIndices.add(index+19);
+				index+=24;
+			}
+		}
+		
+		for(Integer i: waterPropertyIndices) bytes[i] = 1;
+		fos.write(bytes);
+		fos.close();
+		
+		System.out.println("End.");
+		
 	}
 	
 	public static void getFloorData(String inPath, String outPath) throws IOException {
