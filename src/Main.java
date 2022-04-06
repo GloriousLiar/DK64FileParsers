@@ -12,7 +12,7 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		//getCharacterSpawnerData("C:\\Learning\\eclipse-workspace\\DK64Textures\\src\\117C77A_ZLib.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
-		//getFloorData("C:\\Learning\\eclipse-workspace\\DK64Textures\\src\\63CE96_ZLibtmp.bin.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
+		getFloorData("C:\\Learning\\eclipse-workspace\\DK64FileParsers\\src\\test-files\\63CE96_ZLibtmp.bin.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
 		//getCharacterSpawnerData("C:\\Learning\\eclipse-workspace\\DK64Textures\\src\\117CA8C_ZLib.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
 		//printPointerTableOffsets("C:\\Users\\Jacob\\Desktop\\racedata.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
 		//getCheckpointData("C:\\Learning\\crankys-lab\\dk64-tag-anywhere\\"+
@@ -59,7 +59,13 @@ public class Main {
 						z2 = {bytes[index++],bytes[index++]},
 						x3 = {bytes[index++],bytes[index++]},
 						y3 = {bytes[index++],bytes[index++]},
-						z3 = {bytes[index++],bytes[index++]};
+						z3 = {bytes[index++],bytes[index++]},
+						props_1 = {bytes[index++]},
+						props_2 = {bytes[index++]},
+						props_3 = {bytes[index++]},
+						props_4 = {bytes[index++]},
+						props_5 = {bytes[index++]},
+						props_6 = {bytes[index++]};
 				if(floor_or_wall == 'f') {
 					sOut+=	"x1: "+ByteBuffer.wrap(x1).getShort()/6+" "+String.format("(%02x%02x)\n", x1[0],x1[1])
 						    +"y1: "+ByteBuffer.wrap(y1).getShort()/6+" "+String.format("(%02x%02x)\n", y1[0],y1[1])
@@ -71,10 +77,12 @@ public class Main {
 						    +"y3: "+ByteBuffer.wrap(y3).getShort()/6+" "+String.format("(%02x%02x)\n", y3[0],y3[1])
 						    +"z3: "+ByteBuffer.wrap(z3).getShort()/6+" "+String.format("(%02x%02x)\n", z3[0],z3[1]);
 					
-					index++;
-					sOut+="water: "+String.format("%02x\n", bytes[index++]); index++;
-					sOut+="sfx: "+String.format("%02x\n", bytes[index++]);
-					sOut+="brightness: "+String.format("%02x\n", bytes[index++]); index++;
+					sOut+="floor property bitfield 1 (void, non-solid): "+Integer.toBinaryString((int)props_1[0])+"\n";
+					sOut+="floor property bitfield 2 (damage, insta-death, water): "+Integer.toBinaryString((int)props_2[0])+"\n";
+					sOut+="floor property bitfield 3: "+Integer.toBinaryString((int)props_3[0])+"\n";
+					sOut+="floor property bitfield 4 (sfx): "+Integer.toBinaryString((int)props_4[0])+"\n";
+					sOut+="floor property bitfield 5 (brightness): "+Integer.toBinaryString((int)props_5[0])+"\n";
+					sOut+="floor property bitfield 6: "+Integer.toBinaryString((int)props_6[0])+"\n";
 				} else {
 					sOut+=	"x1: "+ByteBuffer.wrap(x1).getShort()+" "+String.format("(%02x%02x)\n", x1[0],x1[1])
 						    +"y1: "+ByteBuffer.wrap(y1).getShort()+" "+String.format("(%02x%02x)\n", y1[0],y1[1])
@@ -85,12 +93,12 @@ public class Main {
 							+"x3: "+ByteBuffer.wrap(x3).getShort()+" "+String.format("(%02x%02x)\n", x3[0],x3[1])
 						    +"y3: "+ByteBuffer.wrap(y3).getShort()+" "+String.format("(%02x%02x)\n", y3[0],y3[1])
 						    +"z3: "+ByteBuffer.wrap(z3).getShort()+" "+String.format("(%02x%02x)\n", z3[0],z3[1]);
-					byte[] 	nx = {bytes[index++],bytes[index++]},
-							ny = {bytes[index++],bytes[index++]},
-							nz = {bytes[index++],bytes[index++]};
-					sOut+= "nx: "+ByteBuffer.wrap(nx).getShort()+"\n"
-							+"ny: "+ByteBuffer.wrap(ny).getShort()+"\n"
-							+"nz: "+ByteBuffer.wrap(nz).getShort()+"\n";
+					sOut+="wall property bitfield 1: "+Integer.toBinaryString((int)props_1[0])+"\n";
+					sOut+="wall property bitfield 2: "+Integer.toBinaryString((int)props_2[0])+"\n";
+					sOut+="wall property bitfield 3: "+Integer.toBinaryString((int)props_3[0])+"\n";
+					sOut+="wall property bitfield 4: "+Integer.toBinaryString((int)props_4[0])+"\n";
+					sOut+="wall property bitfield 5 (damage): "+Integer.toBinaryString((int)props_5[0])+"\n";
+					sOut+="wall property bitfield 6: "+Integer.toBinaryString((int)props_6[0])+"\n";
 				}
 			}
 		}
