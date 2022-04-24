@@ -12,18 +12,19 @@ public class Main {
 	
 	public static void main(String[] args) throws IOException {
 		//getCharacterSpawnerData("C:\\Learning\\eclipse-workspace\\DK64Textures\\src\\117C77A_ZLib.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
-		getFloorData("C:\\Learning\\eclipse-workspace\\DK64FileParsers\\src\\test-files\\63CDE4_ZLibtmp.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
+		//getFloorData("C:\\Learning\\eclipse-workspace\\DK64FileParsers\\src\\test-files\\test-floors.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
 		//floorIsWater("C:\\Learning\\eclipse-workspace\\DK64FileParsers\\src\\test-files\\63CDE4_ZLibtmp.bin","C:\\Users\\Jacob\\Desktop\\output.bin");
 		//getCharacterSpawnerData("C:\\Learning\\eclipse-workspace\\DK64Textures\\src\\117CA8C_ZLib.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
-		//printPointerTableOffsets("C:\\Users\\Jacob\\Desktop\\racedata.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
+		//printPointerTableOffsets("C:\\Learning\\eclipse-workspace\\DK64FileParsers\\src\\test-files\\table_0x6","C:\\Users\\Jacob\\Desktop\\output.txt");
 		//getCheckpointData("C:\\Learning\\crankys-lab\\dk64-tag-anywhere\\"+
 		//					"maps\\14 - Angry_Aztec__Beetle_Race\\race_checkpoints.bin",
 		//					"C:\\Users\\Jacob\\Desktop\\output.txt");
 		//getCheckpointData("C:\\Learning\\crankys-lab\\dk64-tag-anywhere\\"+
 		//					"maps\\185 - Creepy_Castle__Car_Race\\race_checkpoints.bin",
 		//					"C:\\Users\\Jacob\\Desktop\\output.txt");
-		//getGeometryData("C:\\Learning\\eclipse-workspace\\DK64FileParsers\\src\\test-files\\1526A4_ZLib.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
+		//getGeometryData("C:\\Learning\\eclipse-workspace\\DK64FileParsers\\src\\test-files\\20A510_ZLib.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
 		//updateFloorProperty("C:\\Learning\\eclipse-workspace\\DK64FileParsers\\src\\test-files\\63CDE4_ZLibtmp.bin","C:\\Users\\Jacob\\Desktop\\output.bin");
+		getWallData("C:\\Learning\\eclipse-workspace\\DK64FileParsers\\src\\test-files\\43CF64_ZLibtmp.bin","C:\\Users\\Jacob\\Desktop\\output.txt");
 	}
 	
 	public static void updateFloorProperty(String inPath, String outPath) throws IOException {
@@ -130,13 +131,13 @@ public class Main {
 						props_6 = {bytes[index++]};
 				if(floor_or_wall == 'f') {
 					sOut+=	"x1: "+ByteBuffer.wrap(x1).getShort()/6+" "+String.format("(%02x%02x)\n", x1[0],x1[1])
-						    +"x2: "+ByteBuffer.wrap(y1).getShort()/6+" "+String.format("(%02x%02x)\n", x2[0],x2[1])
-						    +"x3: "+ByteBuffer.wrap(z1).getShort()/6+" "+String.format("(%02x%02x)\n", x3[0],x3[1])
-						    +"y1: "+ByteBuffer.wrap(x2).getShort()/6+" "+String.format("(%02x%02x)\n", y1[0],y1[1])
+						    +"x2: "+ByteBuffer.wrap(x2).getShort()/6+" "+String.format("(%02x%02x)\n", x2[0],x2[1])
+						    +"x3: "+ByteBuffer.wrap(x3).getShort()/6+" "+String.format("(%02x%02x)\n", x3[0],x3[1])
+						    +"y1: "+ByteBuffer.wrap(y1).getShort()/6+" "+String.format("(%02x%02x)\n", y1[0],y1[1])
 						    +"y2: "+ByteBuffer.wrap(y2).getShort()/6+" "+String.format("(%02x%02x)\n", y2[0],y2[1])
-						    +"y3: "+ByteBuffer.wrap(z2).getShort()/6+" "+String.format("(%02x%02x)\n", y3[0],y3[1])
-							+"z1: "+ByteBuffer.wrap(x3).getShort()/6+" "+String.format("(%02x%02x)\n", z1[0],z1[1])
-						    +"z2: "+ByteBuffer.wrap(y3).getShort()/6+" "+String.format("(%02x%02x)\n", z2[0],z2[1])
+						    +"y3: "+ByteBuffer.wrap(y3).getShort()/6+" "+String.format("(%02x%02x)\n", y3[0],y3[1])
+							+"z1: "+ByteBuffer.wrap(z1).getShort()/6+" "+String.format("(%02x%02x)\n", z1[0],z1[1])
+						    +"z2: "+ByteBuffer.wrap(z2).getShort()/6+" "+String.format("(%02x%02x)\n", z2[0],z2[1])
 						    +"z3: "+ByteBuffer.wrap(z3).getShort()/6+" "+String.format("(%02x%02x)\n", z3[0],z3[1]);
 					
 					sOut+="floor property bitfield 1 (void, non-solid): "+Integer.toBinaryString((int)props_1[0])+"\n";
@@ -147,13 +148,13 @@ public class Main {
 					sOut+="floor property bitfield 6: "+String.format("0x%02x\n", props_6[0]);
 				} else {
 					sOut+=	"x1: "+ByteBuffer.wrap(x1).getShort()+" "+String.format("(%02x%02x)\n", x1[0],x1[1])
-						    +"x2: "+ByteBuffer.wrap(y1).getShort()+" "+String.format("(%02x%02x)\n", x2[0],x2[1])
-						    +"x3: "+ByteBuffer.wrap(z1).getShort()+" "+String.format("(%02x%02x)\n", x3[0],x3[1])
-						    +"y1: "+ByteBuffer.wrap(x2).getShort()+" "+String.format("(%02x%02x)\n", y1[0],y1[1])
+						    +"x2: "+ByteBuffer.wrap(x2).getShort()+" "+String.format("(%02x%02x)\n", x2[0],x2[1])
+						    +"x3: "+ByteBuffer.wrap(x3).getShort()+" "+String.format("(%02x%02x)\n", x3[0],x3[1])
+						    +"y1: "+ByteBuffer.wrap(y1).getShort()+" "+String.format("(%02x%02x)\n", y1[0],y1[1])
 						    +"y2: "+ByteBuffer.wrap(y2).getShort()+" "+String.format("(%02x%02x)\n", y2[0],y2[1])
-						    +"y3: "+ByteBuffer.wrap(z2).getShort()+" "+String.format("(%02x%02x)\n", y3[0],y3[1])
-							+"z1: "+ByteBuffer.wrap(x3).getShort()+" "+String.format("(%02x%02x)\n", z1[0],z1[1])
-						    +"z2: "+ByteBuffer.wrap(y3).getShort()+" "+String.format("(%02x%02x)\n", z2[0],z2[1])
+						    +"y3: "+ByteBuffer.wrap(y3).getShort()+" "+String.format("(%02x%02x)\n", y3[0],y3[1])
+							+"z1: "+ByteBuffer.wrap(z1).getShort()+" "+String.format("(%02x%02x)\n", z1[0],z1[1])
+						    +"z2: "+ByteBuffer.wrap(z2).getShort()+" "+String.format("(%02x%02x)\n", z2[0],z2[1])
 						    +"z3: "+ByteBuffer.wrap(z3).getShort()+" "+String.format("(%02x%02x)\n", z3[0],z3[1]);
 					sOut+="wall property bitfield 1: "+Integer.toBinaryString((int)props_1[0])+"\n";
 					sOut+="wall property bitfield 2: "+Integer.toBinaryString((int)props_2[0])+"\n";
